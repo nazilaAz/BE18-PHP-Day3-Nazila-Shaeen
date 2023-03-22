@@ -1,3 +1,27 @@
+<?php
+include_once "actions/db_connect.php";
+
+if (isset($_GET['id'])) {
+    // $sql = "DELETE FROM `dishes` WHERE dishID = ".$_GET['id'];
+    $sql = "SELECT * FROM `dishes` WHERE dishID = " . $_GET['id'];
+    $result = mysqli_query($connect, $sql);
+    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    $img='';
+    $txtBody='';
+
+    if (mysqli_num_rows($result) > 0) {
+        foreach ($rows as $row) {
+$img= "
+<img class='img-thumbnail' src='" .$row['image']."'>
+";
+$txtBody="{$row['description']}";
+        }
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,14 +29,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include "components/boot.php"; ?>
+    <?php include "components/boot.php" ?>
     <link rel="stylesheet" href="components/Css/style.css">
-
-    <title>PHP-Day3-Challenge</title>
+    <title>Details</title>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<body id="details">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,10 +55,14 @@
     </nav>
     <div class="container">
 
-        <h3 class="text-center">Welcom to our Restaurant!</h3>
-        <div class="img">
-            <img src="https://cdn.pixabay.com/photo/2017/01/24/03/54/urban-2004494_960_720.jpg">
-
+        <div class="card" style="width: 18rem;">
+            <?= $img ?>
+            <div class="card-body">
+                <p class="card-text">
+                    <?= $txtBody ?>
+                </p>
+                <a href="read.php" class="card-link"><img class="backImg" src="https://cdn-icons-png.flaticon.com/512/2099/2099166.png"></a>
+            </div>
         </div>
 
 

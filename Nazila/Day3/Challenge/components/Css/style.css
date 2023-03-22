@@ -26,3 +26,25 @@ body {
     width: 10rem;
     height: auto;
 }
+
+#details div.container {
+    background-color: #f3ea89;
+    margin-top: 5rem;
+    width: 40%;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+#details div.container .card {
+    margin: 1rem auto;
+}
+
+#details div.container .card a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#details div.container .card .backImg {
+    width: 32px;
+    height: auto;
+}
