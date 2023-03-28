@@ -1,5 +1,6 @@
 <?php
-include "db_connect.php";
+require "db_connect.php";
+require "../components/file_upload.php";
 
 if($_POST){
 $name=$_POST['name'];

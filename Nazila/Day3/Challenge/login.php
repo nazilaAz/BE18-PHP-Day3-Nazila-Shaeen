@@ -25,10 +25,9 @@
                     <form autocomplete="off">
                         <input type="text" placeholder="Firstname">
                         <input type="text" placeholder="Lasttname">
-                        <input type="date">
                         <input type="email" placeholder="email">
                         <input type="password" placeholder="password">
-                        <input type="password" placeholder="confirm password">
+                        <!-- <input type="password" placeholder="confirm password"> -->
                         <input type="file" placeholder="Upload Image">
                         <button class="button submit">create account </button>
                     </form>

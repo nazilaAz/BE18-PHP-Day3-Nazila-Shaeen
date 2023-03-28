@@ -1,4 +1,15 @@
+$gray: #8E9AAF;
+$lavender: #4C3A51;
+$pale: #C1A3A3;
+$white: #f6f6f6;
+$darkpink:#986666;
+$pink: darken($pale, 20%);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Lora');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Yanone+Kaffeesatz&display=swap');
+$sans-serif: 'Open Sans',
+sans-serif;
+$serif: 'Lora',
+serif;
 * {
     margin: 0;
     padding: 0;
@@ -9,28 +20,50 @@ body {
     font-size: 18px;
 }
 
-.txtFont {
-    font-family: 'Pacifico', cursive !important;
+nav {
+    .txtFont {
+        font-family: 'Pacifico', cursive !important;
+        color: $darkpink !important;
+    }
+    .navbar-nav li a {
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        color: $gray !important;
+    }
+    .navbar-toggler {
+        margin: -2.1rem 0 0 40rem !important;
+    }
 }
 
-.navbar-nav li a,
-h3 {
-    font-family: 'Yanone Kaffeesatz', sans-serif;
-    text-align: right;
-}
-
-.navbar-toggler {
-    margin: -2.1rem 0 0 40rem !important;
-}
-
-.container {
-    // background-color: #FCFFE7;
-    margin: 0 auto;
-}
-
-.container .img img {
-    margin: 0 auto;
-    width: 100%;
+body#index {
+    .container {
+        margin: 0 auto;
+    }
+    .img {
+        img {
+            margin: 0 auto;
+            width: 100vw;
+            height: 60vh;
+            opacity: .8;
+            background-size: cover;
+            position: relative;
+        }
+        .book {
+            position: absolute;
+            text-transform: uppercase;
+            top: 30%;
+            left: 42%;
+        }
+        .menu {
+            position: absolute;
+            text-transform: uppercase;
+            top: 30%;
+            left: 52%;
+        }
+        button {
+            background: $white;
+            color: $pink;
+        }
+    }
 }
 
 .container .table {

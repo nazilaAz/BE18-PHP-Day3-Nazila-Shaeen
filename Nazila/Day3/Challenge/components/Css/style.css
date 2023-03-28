@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400|Lora");
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Yanone+Kaffeesatz&display=swap");
 * {
   margin: 0;
@@ -9,27 +10,44 @@ body {
   font-size: 18px;
 }
 
-.txtFont {
+nav .txtFont {
   font-family: "Pacifico", cursive !important;
+  color: #986666 !important;
 }
-
-.navbar-nav li a,
-h3 {
+nav .navbar-nav li a {
   font-family: "Yanone Kaffeesatz", sans-serif;
-  text-align: right;
+  color: #8E9AAF !important;
 }
-
-.navbar-toggler {
+nav .navbar-toggler {
   margin: -2.1rem 0 0 40rem !important;
 }
 
-.container {
+body#index .container {
   margin: 0 auto;
 }
-
-.container .img img {
+body#index .img img {
   margin: 0 auto;
-  width: 100%;
+  width: 100vw;
+  height: 60vh;
+  opacity: 0.8;
+  background-size: cover;
+  position: relative;
+}
+body#index .img .book {
+  position: absolute;
+  text-transform: uppercase;
+  top: 30%;
+  left: 42%;
+}
+body#index .img .menu {
+  position: absolute;
+  text-transform: uppercase;
+  top: 30%;
+  left: 52%;
+}
+body#index .img button {
+  background: #f6f6f6;
+  color: #986666;
 }
 
 .container .table {

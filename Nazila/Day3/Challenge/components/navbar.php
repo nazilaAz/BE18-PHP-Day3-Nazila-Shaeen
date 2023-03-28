@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg" style="background-color: #f6f6f6;">
         <div class="container-fluid">
-            <a class="navbar-brand txtFont" href="#">Restaurant</a>
+            <a class="navbar-brand txtFont">Ristorante Il Gambero Rosso</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -11,7 +11,10 @@
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="read.php">Our meals</a>
+                        <a class="nav-link" href="menu/read.php">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Book a table</a>
                     </li>
                 </ul>
             </div>
