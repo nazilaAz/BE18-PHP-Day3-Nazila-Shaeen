@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Yanone+Kaffeesatz&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+body {
+    font-size: 18px;
+}
+
+.txtFont {
+    font-family: 'Pacifico', cursive !important;
+}
+
+.navbar-nav li a,
+h3 {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    text-align: right;
+}
+
+.navbar-toggler {
+    margin: -2.1rem 0 0 40rem !important;
+}
+
+.container {
+    // background-color: #FCFFE7;
+    margin: 0 auto;
+}
+
+.container .img img {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.container .table {
+    margin: 3rem auto;
+}
+
+.container .table tbody .img-thumbnail {
+    width: 10rem;
+    height: auto;
+}
+
+#details div.container {
+    background-color: #f3ea89;
+    margin-top: 5rem;
+    width: 40%;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+#details div.container .card {
+    margin: 1rem auto;
+}
+
+#details div.container .card a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#details div.container .card .backImg {
+    width: 32px;
+    height: auto;
+}

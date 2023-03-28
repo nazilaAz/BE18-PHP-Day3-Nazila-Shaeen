@@ -2,7 +2,6 @@
 include_once "actions/db_connect.php";
 
 if (isset($_GET['id'])) {
-    // $sql = "DELETE FROM `dishes` WHERE dishID = ".$_GET['id'];
     $sql = "SELECT * FROM `dishes` WHERE dishID = " . $_GET['id'];
     $result = mysqli_query($connect, $sql);
     $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -37,15 +36,15 @@ $txtBody="{$row['description']}";
 <body id="details">
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand txtFont" href="index.php">Restaurant</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="read.php">Our meals</a>
                     </li>
@@ -67,6 +66,7 @@ $txtBody="{$row['description']}";
 
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 
 </html>
