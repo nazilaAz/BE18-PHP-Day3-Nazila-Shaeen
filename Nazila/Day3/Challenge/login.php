@@ -1,6 +1,9 @@
 <?php
+session_start();
 require_once "actions/db_connect.php";
 require_once "components/file_upload.php";
+
+
 
 function cleanInput($param)
 {
@@ -10,12 +13,12 @@ function cleanInput($param)
 
     return $clean;
 }
-$fnameError = $lnameError = $dataError = $emailError = $passError = '';
-$first_name = $last_name = $email = '';
-
+$fnameError = $lnameError = $dataError = $emailError = $passError = $emailloginError = $passLoginError = '';
+$first_name = $last_name = $email = $username = $pwd = '';
+$display = 'none';
 if (isset($_POST['register'])) {
     $error = false;
-    $display = 'none';
+
 
     $first_name = cleanInput($_POST['firstname']);
     $last_name = cleanInput($_POST['lastname']);
@@ -58,10 +61,12 @@ if (isset($_POST['register'])) {
         $emailError = "Please Enter Valid Email Address!";
     } else {
         $sqlStr = "SELECT email FROM users WHERE email='$email'";
-        $result = mysqli_query($connect, $sqlStr);
-        if (mysqli_num_rows($result) != 0) {
+        $res = mysqli_query($connect, $sqlStr);
+        // var_dump($res);
+        // die();
+        if (mysqli_num_rows($res) != 0) {
             $error = true;
-            $disply = 'block';
+            $display = 'block';
             $emailError = "This Email already exist!";
         }
     }
@@ -97,6 +102,58 @@ if (isset($_POST['register'])) {
             $errType = 'danger';
             $msg = 'Somethig wrong!';
             $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : "";
+        }
+    }
+}
+
+//LOGIN Section
+$logindislay = 'none';
+if (isset($_POST['login'])) {
+    $loginError = false;
+    $username = cleanInput($_POST['username']);
+    $pwd = cleanInput($_POST['pwd']);
+
+    //Email Validation
+    if (!filter_var($username, FILTER_VALIDATE_EMAIL)) {
+        $loginError = true;
+        $logindislay = 'block';
+        $emailloginError = "Please Enter Valid Email Address!";
+    } else {
+        $sqlStr = "SELECT email FROM users WHERE email='$email'";
+        $res = mysqli_query($connect, $sqlStr);
+
+        if (mysqli_num_rows($res) != 0) {
+            $loginError = true;
+            $logindislay = 'block';
+            $emailloginError = "This Email already exist!";
+        }
+    }
+    //Password Validation
+    if (empty($pwd)) {
+        $loginError = true;
+        $logindislay = 'block';
+        $passLoginError = "Please enter password.";
+    } elseif (strlen($pwd) < 6) {
+        $loginError = true;
+        $logindislay = 'block';
+        $passLoginError = "Password must have to at least 6 charachters.";
+    }
+    if (!$loginError) {
+        $pwd = hash("sha256", $pwd);
+        $strSqlLogin = "SELECT * FROM users WHERE email='$username' AND password='$pwd'";
+        $resultLogin = mysqli_query($connect, $strSqlLogin);
+        $count = mysqli_num_rows($resultLogin);
+        $rowLogin = mysqli_fetch_assoc($resultLogin);
+
+        //define $_SESSION Variable
+        if ($count == 1) {
+            if ($rowLogin['status'] == 'admin') {
+                $_SESSION['admin'] = $rowLogin['id'];
+                header("Location:dashboard.php");
+            } else {
+                $_SESSION['user'] = $rowLogin['id'];
+                header("Location:booktable.php");
+            }
         }
     }
 }
@@ -164,14 +221,12 @@ if (isset($_POST['register'])) {
                 </div>
                 <div class="signin">
                     <h1>sign in</h1>
-                    <form class="more-padding" autocomplete="off">
-                        <input type="text" placeholder="username">
-                        <input type="password" placeholder="password">
-                        <!-- <div class="checkbox">
-                            <input type="checkbox" id="remember" /><label for="remember">remember me</label>
-                        </div> -->
-
-                        <button class="button submit">login</button>
+                    <form class="more-padding" autocomplete="off" action="<?= htmlspecialchars($_SERVER['SCRIPT_NAME']) ?>" method="POST">
+                        <input type="email" placeholder="username" name="username">
+                        <span class="text-danger danger" style="display: <?= $logindislay ?>;"><?= $emailloginError ?></span>
+                        <input type="password" placeholder="password" name="pwd">
+                        <span class="text-danger danger" style="display: <?= $logindislay ?>;"><?= $passLoginError ?></span>
+                        <button class="button submit" type="submit" name="login">login</button>
                     </form>
                 </div>
             </div>
