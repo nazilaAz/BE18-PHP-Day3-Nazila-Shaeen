@@ -18,7 +18,7 @@
 
     <div class="img">
         <img src="https://cdn.pixabay.com/photo/2021/03/16/10/04/street-6099209__340.jpg">
-        <a href="#" role="button" class="btn btn-light book">Book a Table</a>
+        <a href="login.php" role="button" class="btn btn-light book">Book a Table</a>
         <a href="menu/read.php" role="button" class="btn btn-light menu">Our Menu</a>
     </div>
     <div class="container">

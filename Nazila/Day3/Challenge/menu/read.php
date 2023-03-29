@@ -44,7 +44,7 @@ mysqli_close($connect);
 
 </head>
 
-<body>
+<body id="menu">
 <nav class="navbar navbar-expand-lg" style="background-color: #f6f6f6;">
         <div class="container-fluid">
             <a class="navbar-brand txtFont">Ristorante Il Gambero Rosso</a>
@@ -61,14 +61,14 @@ mysqli_close($connect);
                         <a class="nav-link" href="read.php">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Book a table</a>
+                        <a class="nav-link" href="../login.php">Book a table</a>
                     </li>
                 </ul>
             </div>
             <div class="collapse navbar-collapse justify-content-end ps-5" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link rightLogin" href="login.php"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                    <a class="nav-link rightLogin" href="../login.php"><i class="bi bi-box-arrow-in-right"></i> Login</a>
                 </li>
                
             </ul>

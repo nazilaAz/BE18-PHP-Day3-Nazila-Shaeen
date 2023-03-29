@@ -14,7 +14,7 @@
                         <a class="nav-link" href="menu/read.php">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Book a table</a>
+                        <a class="nav-link" href="login.php">Book a table</a>
                     </li>
                 </ul>
             </div>

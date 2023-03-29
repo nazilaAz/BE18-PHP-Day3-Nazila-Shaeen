@@ -55,6 +55,13 @@ body {
 .rightbox {
   right: -2%;
 }
+.rightbox .danger {
+  display: none;
+  margin-left: 3rem;
+  position: relative;
+  top: 22rem;
+  font-size: 0.8rem;
+}
 
 /* font & button styling */
 h1 {

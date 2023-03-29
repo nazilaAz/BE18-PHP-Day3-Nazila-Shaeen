@@ -50,11 +50,10 @@ body#index .img button {
   color: #986666;
 }
 
-.container .table {
+body#menu .container .table {
   margin: 3rem auto;
 }
-
-.container .table tbody .img-thumbnail {
+body#menu .container .table tbody .img-thumbnail {
   width: 10rem;
   height: auto;
 }

@@ -67,6 +67,15 @@ body {
 
 .rightbox {
     right: -2%;
+    .danger {
+        // border: 1px soli red;
+        display: none;
+        margin-left: 3rem;
+        position: relative;
+        top: 22rem;
+        font-size: .8rem;
+        // color: red;
+    }
 }
 
 
