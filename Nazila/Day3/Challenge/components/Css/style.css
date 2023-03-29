@@ -58,6 +58,11 @@ body#menu .container .table tbody .img-thumbnail {
   height: auto;
 }
 
+body#book nav .container-fluid #navbarNav ul li img {
+  width: 4rem;
+  height: auto;
+}
+
 #details div.container {
   background-color: #f3ea89;
   margin-top: 5rem;

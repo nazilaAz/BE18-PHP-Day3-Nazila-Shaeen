@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(isset($_SESSION['user'])){
+    header('location: booktable.php');
+}
+if(isset($_SESSION['admin'])){
+    header('location: dashboard.php');
+}
 require_once "actions/db_connect.php";
 require_once "components/file_upload.php";
 
@@ -280,19 +286,6 @@ if (isset($_POST['login'])) {
 
         });
     </script>
-
-    <!-- <script>
-        document.getElementById("signup").addEventListener("click", function() {
-            document.getElementsByClassName("pinkbox").css('transform', 'translateX(80%)');
-            document.getElementsByClassName('signin').addClass('nodisplay');
-            document.getElementsByClassName('signup').removeClass('nodisplay');
-        });
-        document.getElementById("signin").addEventListener("click", function() {
-            document.getElementsByClassName("pinkbox").css('transform', 'translateX(0%)');
-            document.getElementsByClassName('signup').addClass('nodisplay');
-            document.getElementsByClassName('signin').removeClass('nodisplay');
-        });
-    </script> -->
     <?php include_once "components/bootjs.php"; ?>
 </body>
 

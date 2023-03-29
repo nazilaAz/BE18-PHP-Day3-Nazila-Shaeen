@@ -80,6 +80,23 @@ body#menu {
     }
 }
 
+body#book {
+    nav {
+        .container-fluid {
+            #navbarNav {
+                ul {
+                    li {
+                        img {
+                            width: 4rem;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 #details div.container {
     background-color: #f3ea89;
     margin-top: 5rem;
