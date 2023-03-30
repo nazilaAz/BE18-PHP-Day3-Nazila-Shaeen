@@ -1,4 +1,16 @@
 <?php
+session_start();
+
+if (isset($_SESSION['user'])) {
+    header('Location:../reservetable/not.php');
+} 
+if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
+    header('Location:../login.php');
+}
+if(isset($_SESSION['admin'])) {
+    header('Location:menu/read.php');
+}
+
 include_once "../actions/db_connect.php";
 
 $sql = "SELECT * FROM dishes";
@@ -16,7 +28,7 @@ if (mysqli_num_rows($result) > 0) {
     <tr> 
          <td>{$row['dishID']}</td>
         <td>{$row['name']}</td>
-         <td><img class='img-thumbnail' src='" . $row['picture'] . "'></td>
+         <td><img class='img-thumbnail' src='../pictures/{$row['picture']}'></td>
          <td><a href='details.php?id={$row['dishID']}' role='button' class='btn btn-success'>Details</a></td>
          <td><a href='update.php?id={$row['dishID']}' role='button' class='btn btn-warning'>Update</a></td>
          <td><a href='delete.php?id={$row['dishID']}' role='button' class='btn btn-danger'>Delete</a></td>

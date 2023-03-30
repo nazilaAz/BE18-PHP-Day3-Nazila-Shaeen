@@ -1,13 +1,17 @@
 <?php
+
 session_start();
-if (isset($_SESSION['admin'])) {
-    header('Location:dashboar.php');
-} elseif (!isset($_SESSION['user'])) {
-    header('Location:login.php');
+if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
+    header('Location:../login.php');
 }
+if (isset($_SESSION['admin'])) {
+    header('Location:../dashboar.php');
+} 
+if(isset($_SESSION['user'])) {
+    header('Location:../login.php');
+} 
 
-
-require_once "actions/db_connect.php";
+require_once "../actions/db_connect.php";
 
 $sql = "SELECT * FROM users WHERE id={$_SESSION['user']}";
 $result = mysqli_query($connect, $sql);
@@ -23,9 +27,9 @@ $row = mysqli_fetch_assoc($result);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome <?php echo $row['first_name']; ?></title>
-    <?php include_once "components/boot.php"; ?>
-    <link rel="stylesheet" href="components/Css/style.css">
-    <link rel="stylesheet" href="components/Css/login.css">
+    <?php include_once "../components/boot.php"; ?>
+    <link rel="stylesheet" href="../components/Css/style.css">
+    <link rel="stylesheet" href="../components/Css/login.css">
 
 </head>
 
@@ -40,11 +44,11 @@ $row = mysqli_fetch_assoc($result);
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="menu/read.php">Menu</a>
-                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="../menu/read.php">Menu</a>
+                    </li> -->
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="login.php">Book a table</a>
                     </li> -->
@@ -56,7 +60,7 @@ $row = mysqli_fetch_assoc($result);
                         <a class="nav-link rightLogin"><?= $row['first_name']; ?></a>
                     </li>
                     <li class="nav-item">
-                        <img class="img-thumbnail" src="pictures/<?=$row['picture'];?>" >
+                        <img class="img-thumbnail" src="../pictures/<?=$row['picture'];?>" >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link rightLogin" href="logout.php?logout"><i class="bi bi-box-arrow-left"></i> Logout</a>
@@ -73,53 +77,27 @@ $row = mysqli_fetch_assoc($result);
         <div class="welcome">
             
             <div class="leftbox">
-            <h1>Book Your Table</h1>
-                    <form autocomplete="off" action="<?= htmlspecialchars($_SERVER['SCRIPT_NAME']) ?>" method="POST" enctype="multipart/form-data">
-                        <input type="number" placeholder="Number of Persone" name="nop">
+            <h1>new reservation</h1>
+                    <form autocomplete="off" action="../actions/a_create_table.php" method="POST" enctype="multipart/form-data">
+                        <input class="form-control form-control-sm" type="number" placeholder="Number of Persone" min="1" max="99" name="nop">
                      
-                        <input type="date" name="reserveDate">
-                        <input type="time" name="reserveTime">
+                        <input class="form-control form-control-sm" type="date" name="reserveDate">
+                        <input class="form-control form-control-sm" type="time" name="reserveTime">
                        
-                        <textarea rows="3" name="description" placeholder="note"></textarea>     
+                        <textarea class="form-control form-control-sm" rows="3" name="description" placeholder="note"></textarea>     
                         <button type="submit" class="button submit" name="book">Book now</button>
+                        <button type="submit" class="button submit read " name="book">view your reservation</button>
+                        <a href="" role="submit" class="button submit read update" name="update">update your reservation</a>
+                        <a href="" role="submit" class="button submit read delete" name="delete">delete your reservation</a>
                     </form>
             </div>
-
-            <!-- <div class="rightbox">
-
-                <h2 class="title"><span>Lorem</span>&<br>Restaurant</h2>
-                <img class="flower rounded-circle" src="https://cdn.pixabay.com/photo/2021/03/16/10/04/street-6099209_960_720.jpg" />
-                <p class="account">don't have an account?</p>
-                <button type="button" class="button" id="signup">sign up</button>
-
-            </div> -->
-
-
-            
-
-
+         
         </div>
     </div>
 
     </div>
-
-    <script>
-        $('#signup').click(function() {
-            $('.pinkbox').css('transform', 'translateX(80%)');
-            $('.signin').addClass('nodisplay');
-            $('.signup').removeClass('nodisplay');
-        });
-
-        $('#signin').click(function() {
-            $('.pinkbox').css('transform', 'translateX(0%)');
-            $('.signup').addClass('nodisplay');
-            $('.signin').removeClass('nodisplay');
-
-        });
-    </script>
-
-   
-    <?php include_once "components/bootjs.php"; ?>
+  
+    <?php include_once "../components/bootjs.php"; ?>
 
 </body>
 

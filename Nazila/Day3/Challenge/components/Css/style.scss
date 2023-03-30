@@ -95,6 +95,52 @@ body#book {
             }
         }
     }
+    h1 {
+        font-family: $sans-serif;
+        text-align: center;
+        text-transform: uppercase;
+        color: $lavender;
+        font-size: 1rem;
+        margin-top: 20px !important;
+    }
+    form {
+        .form-control {
+            background: $pale;
+            width: 100%;
+            color: $pink;
+            border: none;
+            border-bottom: 1px solid rgba($white, 0.5);
+            padding: 9px;
+            margin: .8rem 0 0 3rem;
+            &::placeholder {
+                color: rgba($white, 1);
+                letter-spacing: 2px;
+                font-size: 1.3em;
+                font-weight: 100;
+            }
+            &:focus {
+                color: $pink;
+                outline: none;
+                border-bottom: 1.2px solid rgba($pink, 0.7);
+                font-size: 1em;
+                transition: .8s all ease;
+                &::placeholder {
+                    opacity: 0;
+                }
+            }
+        }
+        .read {
+            position: absolute;
+            width: 60%;
+            left: 25rem;
+        }
+        .update {
+            top: 7.7rem;
+        }
+        .delete {
+            top: 12rem;
+        }
+    }
 }
 
 #details div.container {

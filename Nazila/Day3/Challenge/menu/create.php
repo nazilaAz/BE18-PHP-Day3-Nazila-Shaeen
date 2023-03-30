@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meals</title>
-    <link rel="stylesheet" href="components/Css/style.css">
-    <?php include "components/boot.php"; ?>
+    <link rel="stylesheet" href="../components/Css/style.css">
+    <?php include "../components/boot.php"; ?>
 
 </head>
 
@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="read.php">Our meals</a>
@@ -31,7 +31,7 @@
         </div>
     </nav>
     <div class="container">
-        <form class="form-group" action="actions/a_create.php" method="post" enctype="multipart/form-data">
+        <form class="form-group" action="../actions/a_create.php" method="post" enctype="multipart/form-data">
             <div class="row mb-3 pt-2">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-6">
@@ -53,7 +53,7 @@
             <div class="row mb-3 pb-3">
                 <label for="image" class="form-label">Upload Picture</label>
                 <div class="col-sm-8">
-                    <input class="form-control" type="file" id="image" name="image">
+                    <input class="form-control" type="file" id="image" name="picture">
                 </div>
             </div>
 

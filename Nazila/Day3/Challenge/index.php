@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (isset($_SESSION['user'])) {
+    header('Location:../reservetable/booktable.php');
+} 
+if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
+    header('Location:../login.php');
+}
+if(isset($_SESSION['admin'])) {
+    header('Location:menu/read.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

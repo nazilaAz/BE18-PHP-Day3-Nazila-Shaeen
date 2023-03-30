@@ -62,6 +62,59 @@ body#book nav .container-fluid #navbarNav ul li img {
   width: 4rem;
   height: auto;
 }
+body#book h1 {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  color: #4C3A51;
+  font-size: 1rem;
+  margin-top: 20px !important;
+}
+body#book form .form-control {
+  background: #C1A3A3;
+  width: 100%;
+  color: #986666;
+  border: none;
+  border-bottom: 1px solid rgba(246, 246, 246, 0.5);
+  padding: 9px;
+  margin: 0.8rem 0 0 3rem;
+}
+body#book form .form-control::-moz-placeholder {
+  color: #f6f6f6;
+  letter-spacing: 2px;
+  font-size: 1.3em;
+  font-weight: 100;
+}
+body#book form .form-control::placeholder {
+  color: #f6f6f6;
+  letter-spacing: 2px;
+  font-size: 1.3em;
+  font-weight: 100;
+}
+body#book form .form-control:focus {
+  color: #986666;
+  outline: none;
+  border-bottom: 1.2px solid rgba(152, 102, 102, 0.7);
+  font-size: 1em;
+  transition: 0.8s all ease;
+}
+body#book form .form-control:focus::-moz-placeholder {
+  opacity: 0;
+}
+body#book form .form-control:focus::placeholder {
+  opacity: 0;
+}
+body#book form .read {
+  position: absolute;
+  width: 60%;
+  left: 25rem;
+}
+body#book form .update {
+  top: 7.7rem;
+}
+body#book form .delete {
+  top: 12rem;
+}
 
 #details div.container {
   background-color: #f3ea89;

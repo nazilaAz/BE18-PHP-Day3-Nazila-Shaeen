@@ -95,7 +95,7 @@ if (isset($_POST['register'])) {
     $password = hash("sha256", $password);
 
     //create user to database
-    $picture = file_upload($_FILES['picture']);
+    $picture = file_upload($_FILES['picture'], "user");
     if (!$error) {
         $strSql = "INSERT INTO `users`(`first_name`, `last_name`, `password`, `date_of_birth`, `email`, `picture`) 
         VALUES ('$first_name','$last_name','$password','$date_of_birth','$email','$picture->fileName')";
@@ -158,7 +158,7 @@ if (isset($_POST['login'])) {
                 header("Location:dashboard.php");
             } else {
                 $_SESSION['user'] = $rowLogin['id'];
-                header("Location:booktable.php");
+                header("Location:reservetable/booktable.php");
             }
         }
     }
